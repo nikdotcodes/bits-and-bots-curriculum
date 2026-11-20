@@ -1,0 +1,41 @@
+/* @theme bitsandbots */
+@import 'default';
+:root {
+  --ink: #211538;
+  --paper: #fbff91;
+  --panel: #fffef0;
+  --blue: #1765ff;
+  --mint: #19b889;
+  --coral: #f5a29c;
+  --pink: #f5b0d1;
+  --line: rgba(33, 21, 56, 0.24);
+  --font: "Space Grotesk", "Trebuchet MS", sans-serif;
+}
+section {
+  background: repeating-linear-gradient(135deg, #fff9df 0px, #fff9df 27px, #f5ebc8 28px, #fff9df 29px);
+  color: var(--ink);
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  padding: 54px 68px;
+  font-size: 29px;
+}
+
+h1 { color: var(--ink); font-size: 1.65em; }
+h2 { color: var(--blue); }
+strong { color: var(--blue); }
+section::after { color: var(--blue); font-size: 16px; }
+section.lead { background: var(--paper); }
+section.lead h1 { background: var(--coral); padding: 28px; box-shadow: 12px 12px var(--blue); transform: rotate(-1deg); }
+
+section.lead {
+  text-align: center;
+  padding-top: 180px;
+  background-image: url("./BitsAndBotBot.png");
+  background-repeat: no-repeat;
+  background-position: center 45px;
+  background-size: 280px auto;
+}
+
+section.lead h1 {
+  font-size: 2.8em;
+  margin-bottom: 0.3em;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "bits-and-bots-curriculum",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Source-controlled teaching materials for Bits and Bots",
+  "scripts": {
+    "slides": "python3 scripts/build.py slides",
+    "html-slides": "python3 scripts/build.py html-slides",
+    "check": "python3 scripts/build.py check"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1"
+  }
+}

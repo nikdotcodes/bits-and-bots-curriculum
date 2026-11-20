@@ -1,0 +1,32 @@
+name: Build teaching materials
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install Marp
+        run: npm install --no-audit --no-fund
+      - name: Install PDF tools and browser
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra fonts-noto-core chromium-browser || sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra fonts-noto-core chromium
+      - name: Check dependencies
+        run: make check
+      - name: Build PDFs and slides
+        run: make all
+      - name: Upload outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: bits-and-bots-teaching-materials
+          path: build/

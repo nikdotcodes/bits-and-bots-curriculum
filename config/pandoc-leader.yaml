@@ -1,0 +1,15 @@
+from: markdown+yaml_metadata_block+fenced_divs
+standalone: true
+to: pdf
+pdf-engine: xelatex
+metadata-file: config/common.yaml
+variables:
+  documentclass: article
+  geometry:
+    - a4paper
+    - margin=20mm
+  fontsize: 10pt
+  mainfont: "Space Grotesk"
+  colorlinks: true
+  linkcolor: blue
+  urlcolor: blue
