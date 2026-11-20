@@ -38,8 +38,6 @@ def check_font(font_name="Space Grotesk"):
             print(f"font ({font_name}): OK (XeLaTeX/fontspec)")
             return True
         print(f"font ({font_name}): NOT AVAILABLE to XeLaTeX")
-        print("  macOS: brew install --cask font-space-grotesk")
-        print("  Ubuntu/CI: sudo apt-get install fonts-space-grotesk")
         print("  After installing, rerun: make check")
         return False
 
