@@ -20,7 +20,21 @@ jobs:
       - name: Install PDF tools and browser
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra fonts-noto-core chromium-browser || sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra fonts-noto-core chromium
+          sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra chromium-browser || sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra fonts-noto-core chromium
+      - name: Install Space Grotesk fonts
+        run: |
+          mkdir -p "$HOME/.local/share/fonts/space-grotesk"
+
+          BASE_URL="https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk"
+
+          for weight in Regular Medium SemiBold Bold; do
+            curl -fL \
+              "$BASE_URL/static/SpaceGrotesk-${weight}.ttf" \
+              -o "$HOME/.local/share/fonts/space-grotesk/SpaceGrotesk-${weight}.ttf"
+          done
+
+          fc-cache -f
+          fc-list | grep -i "Space Grotesk"
       - name: Check dependencies
         run: make check
       - name: Build PDFs and slides
